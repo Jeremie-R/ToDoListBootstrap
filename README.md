@@ -7,9 +7,9 @@ This time on my learning code projec I'm doing a small todo list app using React
 
 It was my first time doing an ux with event listener in react and my first time using bootstrap. 
 
-[view app]()
+[view app](https://roberirini-todolist-bootstrap.netlify.app/)
 
-![demo](./src/assets/appDemo.png)
+[![demo](./src/assets/appDemo.png)](https://roberirini-todolist-bootstrap.netlify.app/)
 
 ---
 
