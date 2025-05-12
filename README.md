@@ -9,7 +9,7 @@ It was my first time doing an ux with event listener in react and my first time 
 
 [view app]()
 
-![./src/asssets/appDemo.png]
+![demo](./src/asssets/appDemo.png)
 
 ---
 
