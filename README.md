@@ -1,12 +1,16 @@
-# React + Vite
+# Simple Todo List app 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This time on my learning code projec I'm doing a small todo list app using React + boostrap + local storage. 
 
-## Expanding the ESLint configuration
+It was my first time doing an ux with event listener in react and my first time using bootstrap. 
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[view app]()
+
+![./src/asssets/appDemo.png]
+
+---
+
+[thanks for  this tutorial](https://www.youtube.com/watch?v=y97U9Ikd7TI)
