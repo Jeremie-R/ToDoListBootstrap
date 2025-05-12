@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TodoList() {
 
-    // create a state
-    const [todos, setTodos] = useState([
-        {task: "my first task", completed: false}, 
-        {task: "my second task", completed: true}])
+    //local storage
+    function getStoredTodos() {
+        let data = localStorage.getItem("todos")
+        let json = JSON.parse(data)
+        if (json) {
+            return json
+        } return []
+    
+    }
+
+
+
+    // create the array > now check storage
+    const [todos, setTodos] = useState(getStoredTodos())
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos))
+    }, [todos])
 
 
     function handleSubmit(event) {
@@ -21,6 +35,18 @@ export default function TodoList() {
         setTodos([...todos, { task: task, completed: false}])
 
         event.target.reset()
+    }
+
+    function changeTaskStatus(index) {
+        let newTodos = [...todos]
+        newTodos[index].completed = !newTodos[index].completed
+        setTodos(newTodos)
+    }
+
+    function deleteTask(index) {
+        let newTodos = [...todos]
+        newTodos.splice(index, 1)
+        setTodos(newTodos)
     }
 
     return (
@@ -41,11 +67,17 @@ export default function TodoList() {
                                 <div key={index} 
                                     className="rounded mt-a p-2 mb-2 d-flex" 
                                     style={{backgroundColor: todo.completed ? "#C3DFCD" : "white"}}>
-                                        <div> <i className={ "h5 me-2 " + (todo.completed ? "bi bi-check-square-fill" : "bi bi-square")}></i> </div>
+                                        <div> 
+                                            <i className={ "h5 me-2 " + (todo.completed ? "bi bi-check-square-fill" : "bi bi-square")} 
+                                                style={{ cursor: "pointer"}} onClick={() => changeTaskStatus(index)}></i> 
+                                            </div>
                                         <div className="me-auto">
                                             {todo.task}
                                         </div>
-                                        <div> <i className="bi bi-x text-danger h5"></i> </div>
+                                        <div>
+                                             <i className="bi bi-x text-danger h5" 
+                                             style={{ cursor: "pointer"}} onClick={() => deleteTask(index)}></i> 
+                                        </div>
 
                                 </div>
                             )
