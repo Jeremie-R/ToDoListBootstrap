@@ -12,7 +12,13 @@ export default function TodoList() {
         event.preventDefault()
 
         let task = event.target.task.value;
-        alert("new task is: " + task)
+
+        if (!task) {
+            alert("please provide a valid task")
+            return
+        }
+
+        setTodos([...todos, { task: task, completed: false}])
 
         event.target.reset()
     }
@@ -35,9 +41,11 @@ export default function TodoList() {
                                 <div key={index} 
                                     className="rounded mt-a p-2 mb-2 d-flex" 
                                     style={{backgroundColor: todo.completed ? "#C3DFCD" : "white"}}>
+                                        <div> <i className={ "h5 me-2 " + (todo.completed ? "bi bi-check-square-fill" : "bi bi-square")}></i> </div>
                                         <div className="me-auto">
                                             {todo.task}
                                         </div>
+                                        <div> <i className="bi bi-x text-danger h5"></i> </div>
 
                                 </div>
                             )
